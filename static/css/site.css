@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%;
+    background-image: url("/static/img/pw_maze_white.png");
     font-family: 'Lato', sans-serif;
 }
 
@@ -51,10 +52,8 @@ body {
     transition: all 0.1s linear;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: -webkit-linear-gradient(left,#ea8711,#d96363,#73a6df,#9085fb,#52ca79);
     background-image: url("/static/img/rainbow.gif");
 }
-
 
 a {
     text-decoration: none;
@@ -67,7 +66,18 @@ a:hover {
 }
 
 #homelink {
+    position: absolute;
+    left: 0;
     text-transform: uppercase;
     padding: 5px;
+}
+
+.bio {
+    font-size: 2em;
+    text-align: justify;
+    text-align: center;
+}
+.bodytext {
+    text-align: justify;
 }
 

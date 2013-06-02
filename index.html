@@ -2,11 +2,16 @@
 layout: default
 title: chromy
 ---
-
+<div class="bio">
+I'm Hector Dearman, a student studying Software Engineering at Imperial Collage in London.
+You can get my <a href="hectordearman.pdf">CV</a> or see my GitHub <a href="http://github.com/chromy">profile</a>.
+I like Computers.
+</div>
+    <hr/>
 <ul class="posts">
   {% for post in site.posts %}
     <li>
-       <time class= "subtle">{{ post.date | date: "%d %B %Y" }}</time>&nbsp;
+       <time class="subtle">{{ post.date | date: "%d %B %Y" }}</time>&nbsp;
        <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
