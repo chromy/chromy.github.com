@@ -1,1 +1,13 @@
-My GitHub Page
+---
+layout: default
+title: chromy
+---
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li>
+       <time class= "subtle">{{ post.date | date: "%d %B %Y" }}</time>&nbsp;
+       <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

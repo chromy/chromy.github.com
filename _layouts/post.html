@@ -1,0 +1,19 @@
+{% include top.html %}
+  <body>
+    <div class="inner">
+      <a id="homelink" href="/">Home</a>
+      <div class="header">
+        <h1><a href="#">{{ page.title }}</a></h1>
+        <h4>{{ page.byline }}</h4>
+      </div>
+      <br/>
+      <div class="subtle">
+        <time>{{ page.date | date: "%d %B %Y" }}</time>
+        &mdash;
+        <place>{{ page.place }}</place>
+      </div>
+
+      {{ content }}
+    </div>
+  </body>
+</html>
