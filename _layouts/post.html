@@ -1,21 +1,27 @@
-{% include top.html %}
-  <body>
-    <div class="header">
-      <a id="homelink" href="/">Home</a>
-        <h1><a href="#">{{ page.title }}</a></h1>
-        <h3>{{ page.byline }}</h3>
+<!DOCTYPE html>
+<html>
+<head>
+  {% include header.html %}
+</head>
+<body>
+  <div class="header">
+    <a id="homelink" href="/">Home</a>
+      <h1><a href="#">{{ page.title }}</a></h1>
+      <h3>{{ page.byline }}</h3>
+  </div>
+  <br/>
+  <div class="inner">
+    <div class="subtle">
+      <time>{{ page.date | date: "%d %B %Y" }}</time>
+      &mdash;
+      <place>{{ page.place }}</place>
     </div>
-    <br/>
-    <div class="inner">
-      <div class="subtle">
-        <time>{{ page.date | date: "%d %B %Y" }}</time>
-        &mdash;
-        <place>{{ page.place }}</place>
-      </div>
-      <div class="bodytext">
-        {{ content }}
-      </div>
+    <div class="bodytext">
+      {{ content }}
     </div>
-
-  </body>
+  </div>
+  {% for js_line in page.extra_javascript %}
+    {{ js_line }}
+  {% endfor %}
+</body>
 </html>
