@@ -6,7 +6,7 @@ function Controller(model) {
 }
 
 Controller.prototype.make_move = function(x, y) {
-    if (!this.model.valid_move(x, y)) {
+    if (this.model.is_finished() || !this.model.valid_move(x, y)) {
         return;
     }
     this.model = this.model.move(x, y);
@@ -61,6 +61,7 @@ View.prototype.update = function (model) {
     if (model.is_finished()) {
         this.fade_rect.setFill('black');
         this.fade_rect.setOpacity(0.9);
+        this.fade_rect.setListening(true);
         if (model.winner() == 'draw') {
             this.message.setText('Draw.');
         } else {
