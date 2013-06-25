@@ -17,6 +17,10 @@ hr {
     /* border-bottom: 0px solid #; */
 }
 
+time {
+    font-family: monospace;
+}
+
 .code {
     font-size: 10px;
 }
