@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember Starter Kit</title>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-responsive.min.css"/>
+<style>
+  .wrapper {
+     min-height: 300px;
+     overflow: hidden;
+  }
+</style>
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <div class="container">
+      {{outlet}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="recipe">
+    <div class="row">
+      <h1>Recipe</h1>
+      <h2>This recipe serves {{recipeServings}}.</h2>
+      <h2>I want to make it for {{userServings}}.</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Ingredient</th>
+            <th>Recipe Quantity</th>
+            <th>My Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each controller itemController="ingredient"}}
+            <tr>
+            <td><button {{action "removeIngredient"}} class="destroy"></button></td>
+            {{#if isEditing}}
+              <td>{{view Baking.EditIngredientView valueBinding="name"}}</td>
+              <td>{{view Baking.EditIngredientView valueBinding="quantity"}}</td>
+            {{else}}
+              <td {{action "editIngredient" on="click"}}>{{name}}</td>
+              <td {{action "editIngredient" on="click"}}>{{quantity}}{{unit}}</td>
+            {{/if}}
+            <td>{{requiredQuantity}}</td>
+            </tr>
+          {{/each}}
+          <tr>
+            <td></td>
+            <td>
+            {{view Ember.TextField 
+              id="new-ingredient" 
+              placeholder="Another Ingredient?"
+              valueBinding="newName" action="createIngredient"}}
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <script src="/static/js/libs/jquery-1.9.1.js"></script>
+  <script src="/static/js/libs/handlebars-1.0.0-rc.4.js"></script>
+  <script src="/static/js/libs/ember-1.0.0-rc.6.js"></script>
+  <script src="/static/js/libs/ember-data-0.13.js"></script>
+  <script src="app.js"></script>
+  <script src="router.js"></script>
+  <script src="models/store.js"></script>
+  <script src="models/recipe.js"></script>
+  <script src="controllers/recipe_controller.js"></script>
+  <script src="controllers/ingredient_controller.js"></script>
+  <script src="views/edit_ingredient_view.js"></script>
+</body>
+</html>
