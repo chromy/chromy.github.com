@@ -3,70 +3,121 @@
 <head>
 <meta charset="utf-8">
 <title>Ember Starter Kit</title>
+<!--
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-responsive.min.css"/>
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap-table.css"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 <style>
-  .wrapper {
-     min-height: 300px;
-     overflow: hidden;
+  input[type="text"].error {
+    border-color: #b94a48;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   }
 </style>
 </head>
 <body>
   <script type="text/x-handlebars">
-    <div class="container">
       {{outlet}}
-    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="recipe">
-    <div class="row">
-      <h1>Recipe</h1>
-      <h2>This recipe serves {{recipeServings}}.</h2>
-      <h2>I want to make it for {{userServings}}.</h2>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Ingredient</th>
-            <th>Recipe Quantity</th>
-            <th>My Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each controller itemController="ingredient"}}
+    <section id="recipeapp">
+      <header id="header">
+        <h1>Recipe</h1>
+              {{view Ember.TextField 
+                id="new-ingredient" 
+                placeholder="Another Ingredient?"
+                valueBinding="newName" action="createIngredient"}}
+      </header>
+      <section id="main">
+          <h2>This recipe serves:
+          {{#if isEditingRecipeServings }}
+            {{view Baking.EditNumberView valueBinding="recipeServings"}}
+          {{else}}
+            <span {{action "editRecipeServings" on="click"}}>{{recipeServings}}</span>
+          {{/if}}
+          </h2>
+
+          <h2>I want to make it for:
+          {{#if isEditingUserServings }}
+            {{view Baking.EditNumberView valueBinding="userServings"}}
+          {{else}}
+            <span {{action "editUserServings" on="click"}}>{{userServings}}</span>
+          {{/if}}
+          </h2>
+        <table id="ingredient-table" class="table table-striped">
+          <thead>
             <tr>
-            <td><button {{action "removeIngredient"}} class="destroy"></button></td>
-            {{#if isEditing}}
-              <td>{{view Baking.EditIngredientView valueBinding="name"}}</td>
-              <td>{{view Baking.EditIngredientView valueBinding="quantity"}}</td>
-            {{else}}
-              <td {{action "editIngredient" on="click"}}>{{name}}</td>
-              <td {{action "editIngredient" on="click"}}>{{quantity}}{{unit}}</td>
-            {{/if}}
-            <td>{{requiredQuantity}}</td>
+              <th></th>
+              <th>Ingredient</th>
+              <th>Recipe Quantity</th>
+              <th>My Quantity</th>
             </tr>
-          {{/each}}
-          <tr>
-            <td></td>
-            <td>
-            {{view Ember.TextField 
-              id="new-ingredient" 
-              placeholder="Another Ingredient?"
-              valueBinding="newName" action="createIngredient"}}
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {{#each controller itemController="ingredient"}}
+              <tr>
+              <td><button {{action "removeIngredient"}} class="destroy"></button></td>
+              {{#if isEditing}}
+              <td {{bindAttr class="isEditing:editing"}}>
+                {{view Baking.EditIngredientView valueBinding="name"}}
+              </td>
+              <td {bindAttr class="isEditing:editing"}}>
+                {{view Baking.EditQuantityView amountBinding="amount" unitBinding="unit"}}
+              </td>
+              {{else}}
+                <td {{action "editIngredient" on="click"}}>{{name}}</td>
+                <td {{action "editIngredient" on="click"}}>{{quantity}}</td>
+              {{/if}}
+              <td>{{requiredQuantity}}</td>
+              </tr>
+            {{/each}}
+            <tr>
+              <td></td>
+              <td>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <footer id="footer">
+        <span id="ingredient-count">
+          <strong>2</strong> todos left
+        </span>
+        <ul id="filters">
+          <li>
+            <a href="all" class="selected">All</a>
+          </li>
+          <li>
+            <a href="active">Active</a>
+          </li>
+          <li>
+            <a href="completed">Completed</a>
+          </li>
+        </ul>
+
+        <button id="clear-completed">
+          Clear completed (1)
+        </button>
+      </footer>
+    </section>
+
+    <footer id="info">
+      <p>Click to edit</p>
+    </footer>
+
   </script>
 
   <script src="/static/js/libs/jquery-1.9.1.js"></script>
   <script src="/static/js/libs/handlebars-1.0.0-rc.4.js"></script>
   <script src="/static/js/libs/ember-1.0.0-rc.6.js"></script>
   <script src="/static/js/libs/ember-data-0.13.js"></script>
+  <script src="quantities.js"></script>
   <script src="app.js"></script>
   <script src="router.js"></script>
   <script src="models/store.js"></script>
@@ -74,5 +125,7 @@
   <script src="controllers/recipe_controller.js"></script>
   <script src="controllers/ingredient_controller.js"></script>
   <script src="views/edit_ingredient_view.js"></script>
+  <script src="views/edit_quantity_view.js"></script>
+  <script src="views/edit_number_view.js"></script>
 </body>
 </html>
