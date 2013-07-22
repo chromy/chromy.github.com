@@ -4,27 +4,21 @@
   {% include header.html %}
 </head>
 <body>
-  <div class="header">
-    <div class="container">
+  <div class="container-narrow">
+    <div class="header">
       <a id="homelink" href="/">Home</a>
       <h1><a href="#">{{ page.title }}</a></h1>
       <h3>{{ page.byline }}</h3>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="span8 offset2">
-        <br/>
-        <div class="subtle">
-          <time>{{ page.date | date: "%d %B %Y" }}</time>
-          &mdash;
-          <place>{{ page.place }}</place>
-        </div>
-        <br/>
-        <div class="bodytext">
-          {{ content }}
-        </div>
-      </div>
+    <div class="subtle">
+      <time>{{ page.date | date: "%d %B %Y" }}</time>
+      &mdash;
+      <place>{{ page.place }}</place>
+    </div>
+    <hr/>
+    <br/>
+    <div class="bodytext">
+      {{ content }}
     </div>
   </div>
   {% for js_line in page.extra_javascript %}
