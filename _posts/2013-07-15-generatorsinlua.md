@@ -13,8 +13,9 @@ Lua has the ability to do something similar like this:
 {% gist 6001722 lua_example.lua %}
 
 This is okay but not nearly as nice.
-We've had too explicitly create a closure which can be awkward sometimes.
-We've also had to use next function to explicitly iterate over the elements.
+We've had to
+explicitly create a closure which can be awkward sometimes.
+We also had to use the 'next' function to explicitly iterate over the elements.
 Finally the embedded repeat loop to skip seen elements is quite ugly.
 
 We can get something closer to the Python syntax in Lua by (ab)using coroutines.
