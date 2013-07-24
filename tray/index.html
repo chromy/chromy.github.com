@@ -51,16 +51,15 @@
         <table id="ingredient-table" class="table table-striped">
           <thead>
             <tr>
-              <th></th>
               <th>Ingredient</th>
               <th>Recipe Quantity</th>
               <th>My Quantity</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {{#each controller itemController="ingredient"}}
               <tr>
-              <td><button {{action "removeIngredient"}} class="destroy"></button></td>
               {{#if isEditing}}
               <td {{bindAttr class="isEditing:editing"}}>
                 {{view Baking.EditIngredientView valueBinding="name"}}
@@ -73,12 +72,13 @@
                 <td {{action "editIngredient" on="click"}}>{{quantity}}</td>
               {{/if}}
               <td>{{requiredQuantity}}</td>
+              <td><button {{action "removeIngredient"}} class="destroy"></button></td>
               </tr>
             {{/each}}
             <tr>
-              <td></td>
               <td>
               </td>
+              <td></td>
               <td></td>
               <td></td>
             </tr>
