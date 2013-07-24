@@ -65,7 +65,7 @@
               <td {{bindAttr class="isEditing:editing"}}>
                 {{view Baking.EditIngredientView valueBinding="name"}}
               </td>
-              <td {bindAttr class="isEditing:editing"}}>
+              <td {{bindAttr class="isEditing:editing"}}>
                 {{view Baking.EditQuantityView amountBinding="amount" unitBinding="unit"}}
               </td>
               {{else}}

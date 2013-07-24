@@ -177,6 +177,18 @@ label[for='toggle-all'] {
 	border-bottom: none;
 }
 
+/* HACK */
+#ingredient-table tbody tr td {
+	height: 47px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#ingredient-table tbody tr th.content {
+	width: 33%;
+}
+/* HACK */
+
 #ingredient-table tbody tr td.editing {
 	border-bottom: none;
 	padding: 0;
@@ -185,7 +197,6 @@ label[for='toggle-all'] {
 #ingredient-table tbody tr td.editing .edit {
 	display: block;
 	margin: 0;
-	width: 100%;
 }
 
 #ingredient-list li.editing .view {
