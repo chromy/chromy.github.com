@@ -1,5 +1,5 @@
 Baking.EditNumberView = Ember.TextField.extend({
-  classNames: ['edit'],
+  classNames: ['inline-editable'],
   classNameBindings: ['isValid::error'],
 
   isValid: function(){

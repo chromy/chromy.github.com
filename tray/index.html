@@ -27,25 +27,21 @@
     <section id="recipeapp">
       <header id="header">
         <h1>Recipe</h1>
-              {{view Ember.TextField 
-                id="new-ingredient" 
-                placeholder="Another Ingredient?"
-                valueBinding="newName" action="createIngredient"}}
       </header>
       <section id="main">
-          <h2>This recipe serves:
+          <h2>
+          This recipe serves
+          <span>{{view Baking.EditNumberView valueBinding="recipeServings"}}</span>,
           {{#if isEditingRecipeServings }}
-            {{view Baking.EditNumberView valueBinding="recipeServings"}}
           {{else}}
-            <span {{action "editRecipeServings" on="click"}}>{{recipeServings}}</span>
+            <span {{action "editRecipeServings" on="click"}}>{{recipeServings}}</span>,
           {{/if}}
-          </h2>
 
-          <h2>I want to make it for:
+          I want to make it for
           {{#if isEditingUserServings }}
-            {{view Baking.EditNumberView valueBinding="userServings"}}
+            {{view Baking.EditNumberView valueBinding="userServings"}}.
           {{else}}
-            <span {{action "editUserServings" on="click"}}>{{userServings}}</span>
+            <span {{action "editUserServings" on="click"}}>{{userServings}}</span>.
           {{/if}}
           </h2>
         <table id="ingredient-table" class="table table-striped">
@@ -76,11 +72,12 @@
               </tr>
             {{/each}}
             <tr>
-              <td>
+              <td colspan="4">
+              {{view Ember.TextField
+                id="new-ingredient"
+                placeholder="Another Ingredient?"
+                valueBinding="newName" action="createIngredient"}}
               </td>
-              <td></td>
-              <td></td>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -117,6 +114,7 @@
   <script src="/static/js/libs/handlebars-1.0.0-rc.4.js"></script>
   <script src="/static/js/libs/ember-1.0.0-rc.6.js"></script>
   <script src="/static/js/libs/ember-data-0.13.js"></script>
+  <script src="libs/CookingQuantity.js"></script>
   <script src="quantities.js"></script>
   <script src="app.js"></script>
   <script src="router.js"></script>

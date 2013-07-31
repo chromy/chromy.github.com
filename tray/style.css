@@ -34,6 +34,15 @@ body {
 	font-smoothing: antialiased;
 }
 
+.inline-editable {
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
+    border: 0;
+    background-color: inherit;
+    display: inline;
+}
+
 #recipeapp {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.9);

@@ -5,20 +5,17 @@ Baking.IngredientController = Ember.ObjectController.extend({
     quantity: function () {
         var amount = this.get('amount');
         var unit = this.get('unit');
-        try {
-            return new Qty(amount+unit);
-        } catch (err) {
-            return new Qty('0');
-        }
+        var qty = new CookingQty(amount, unit);
+        return qty.toString();
     }.property('amount', 'unit'),
 
     requiredQuantity: function () {
-        var quantity = this.get('quantity');
+        var amount = this.get('amount');
+        var unit = this.get('unit');
         var multiplier = this.get('controllers.recipe.multiplier');
-        var rquantity = quantity.mul(multiplier);
-        rquantity = rquantity.toString(2);
-        return rquantity;
-    }.property('controllers.recipe.multiplier', 'quantity'),
+        var newQty = (new CookingQty(amount, unit)).mul(multiplier);
+        return newQty.toString();
+    }.property('controllers.recipe.multiplier', 'amount', 'unit'),
 
     editIngredient: function () {
         this.set('isEditing', true);

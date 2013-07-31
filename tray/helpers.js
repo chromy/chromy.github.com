@@ -1,3 +1,3 @@
-Ember.Handlebars.helper('formatQuantity', function(quantity) {
-    return quantity.toString();
+Ember.Handlebars.helper('formatQuantity', function(amount, unit) {
+    return (new CookingQuantity(amount, unit)).toString();
 });
