@@ -36,11 +36,17 @@ body {
 
 .inline-editable {
     font: inherit;
-    color: inherit;
+    color: steelblue;
     line-height: inherit;
     border: 0;
     background-color: inherit;
-    display: inline;
+    display: inline-block;
+    min-width: 10px;
+}
+
+.inline-editable:empty:after {
+	content: '#';
+    color: gray;
 }
 
 #recipeapp {

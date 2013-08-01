@@ -30,19 +30,11 @@
       </header>
       <section id="main">
           <h2>
-          This recipe serves
-          <span>{{view Baking.EditNumberView valueBinding="recipeServings"}}</span>,
-          {{#if isEditingRecipeServings }}
-          {{else}}
-            <span {{action "editRecipeServings" on="click"}}>{{recipeServings}}</span>,
-          {{/if}}
+            This recipe serves
 
+          {{view "Baking.EditableNumberView" valueBinding="recipeServings" editable="true"}},
           I want to make it for
-          {{#if isEditingUserServings }}
-            {{view Baking.EditNumberView valueBinding="userServings"}}.
-          {{else}}
-            <span {{action "editUserServings" on="click"}}>{{userServings}}</span>.
-          {{/if}}
+          {{view "Baking.EditableNumberView" valueBinding="userServings" editable="true"}}.
           </h2>
         <table id="ingredient-table" class="table table-striped">
           <thead>
@@ -125,5 +117,8 @@
   <script src="views/edit_ingredient_view.js"></script>
   <script src="views/edit_quantity_view.js"></script>
   <script src="views/edit_number_view.js"></script>
+  <script src="views/content_editable_view.js"></script>
+  <script src="views/editable_input_view.js"></script>
+  <script src="views/editable_number_view.js"></script>
 </body>
 </html>
