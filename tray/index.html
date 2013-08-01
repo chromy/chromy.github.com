@@ -32,9 +32,9 @@
           <h2>
             This recipe serves
 
-          {{view "Baking.EditableNumberView" valueBinding="recipeServings" editable="true"}},
+          {{view "Baking.EditableNumberView" valueBinding="recipeServings" editable=true}},
           I want to make it for
-          {{view "Baking.EditableNumberView" valueBinding="userServings" editable="true"}}.
+          {{view "Baking.EditableNumberView" valueBinding="userServings" editable=true}}.
           </h2>
         <table id="ingredient-table" class="table table-striped">
           <thead>
@@ -48,17 +48,8 @@
           <tbody>
             {{#each controller itemController="ingredient"}}
               <tr>
-              {{#if isEditing}}
-              <td {{bindAttr class="isEditing:editing"}}>
-                {{view Baking.EditIngredientView valueBinding="name"}}
-              </td>
-              <td {{bindAttr class="isEditing:editing"}}>
-                {{view Baking.EditQuantityView amountBinding="amount" unitBinding="unit"}}
-              </td>
-              {{else}}
-                <td {{action "editIngredient" on="click"}}>{{name}}</td>
-                <td {{action "editIngredient" on="click"}}>{{quantity}}</td>
-              {{/if}}
+                <td>{{view "Baking.EditableInputView" valueBinding="name" editable=true}}</td>
+                  <td>{{view "Baking.EditableInputView" valueBinding="amount" editable=true}}</td>
               <td>{{requiredQuantity}}</td>
               <td><button {{action "removeIngredient"}} class="destroy"></button></td>
               </tr>

@@ -36,12 +36,16 @@ body {
 
 .inline-editable {
     font: inherit;
-    color: steelblue;
     line-height: inherit;
     border: 0;
+    color: inherit;
     background-color: inherit;
     display: inline-block;
     min-width: 10px;
+}
+
+.inline-editable[contenteditable="true"] {
+    color: steelblue;
 }
 
 .inline-editable:empty:after {
