@@ -5,7 +5,7 @@ Baking.ContentEditableView = Ember.View.extend({
     // Variables:
     editable: false,
     isUserTyping: false,
-    plaintext: false,
+    plaintext: true,
 
     // Properties:
     contenteditable: (function() {
@@ -15,7 +15,7 @@ Baking.ContentEditableView = Ember.View.extend({
 
     // Observers:
     valueObserver: (function() {
-        if (!this.get('isUserTyping') && this.get('value')) {
+        if (!this.get('isUserTyping')) {
             return this.setContent();
         }
     }).observes('value'),
@@ -37,11 +37,18 @@ Baking.ContentEditableView = Ember.View.extend({
     },
 
     keyUp: function(event) {
+        var content;
         if (this.get('plaintext')) {
-            return this.set('value', this.$().text());
+            content = this.$().text();
         } else {
-            return this.set('value', this.$().html());
+            content = this.$().html();
         }
+        // Browsers insert a <br> when users deleate all content. 
+        if (this.$().html() == '<br>') {
+            this.$().html('');
+            content = '';
+        }
+        return this.set('value', content);
     },
 
     pressedKey: function(event) {
