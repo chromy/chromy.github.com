@@ -41,7 +41,7 @@
             {{#each controller itemController="ingredient"}}
               <tr class="row">
                 <td>{{view "Baking.EditableInputView" valueBinding="name" editable=true}}</td>
-                  <td>{{view "Baking.EditableInputView" valueBinding="amount" editable=true}}</td>
+                <td>{{view "Baking.EditableQuantityView" initialValueBinding="quantity" editable=true}}</td>
               <td>{{requiredQuantity}}</td>
               <td><button {{action "removeIngredient"}} class="destroy"></button></td>
               </tr>
@@ -100,5 +100,6 @@
   <script src="views/content_editable_view.js"></script>
   <script src="views/editable_input_view.js"></script>
   <script src="views/editable_number_view.js"></script>
+  <script src="views/editable_quantity_view.js"></script>
 </body>
 </html>

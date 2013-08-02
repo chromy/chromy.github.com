@@ -2,6 +2,14 @@ Baking.IngredientController = Ember.ObjectController.extend({
     needs: "recipe",
     isEditing: false,
 
+    updateAmount: function (amount) {
+        this.set('amount', amount);
+    },
+
+    updateUnit: function (unit) {
+        this.set('unit', unit);
+    },
+
     quantity: function () {
         var amount = this.get('amount');
         var unit = this.get('unit');

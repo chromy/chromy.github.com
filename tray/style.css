@@ -48,6 +48,10 @@ body {
     color: steelblue;
 }
 
+.inline-editable.invalid {
+    color: red;
+}
+
 .inline-editable:empty:after {
 	content: '#';
     color: gray;
@@ -202,6 +206,11 @@ label[for='toggle-all'] {
 	padding: 0;
 	vertical-align: middle;
 }
+
+#ingredient-table tbody tr.row td {
+    padding-left: 8px;
+}
+
 
 #ingredient-table tbody tr th.content {
 	width: 33%;
