@@ -1,7 +1,14 @@
+Baking.Recipe = DS.Model.extend({
+    name: DS.attr('string'),
+    servings: DS.attr('number'),
+    ingredients: DS.hasMany('Baking.Ingredient')
+});
+
 Baking.Ingredient = DS.Model.extend({
-  name: DS.attr('string'),
-  amount: DS.attr('number'),
-  unit: DS.attr('string')
+    recipe: DS.belongsTo('Baking.Recipe'),
+    name: DS.attr('string'),
+    amount: DS.attr('number'),
+    unit: DS.attr('string')
 });
 
 Baking.Ingredient.FIXTURES = [
@@ -18,3 +25,12 @@ Baking.Ingredient.FIXTURES = [
    unit: 'ml',
  },
  ];
+
+Baking.Recipe.FIXTURES = [
+{
+    id: 1,
+    name: 'Pancakes',
+    ingredients: [1, 2]
+}
+];
+

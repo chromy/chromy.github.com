@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Ember Starter Kit</title>
+<title>Recipe</title>
 <!--
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-responsive.min.css"/>
@@ -18,7 +18,7 @@
   <script type="text/x-handlebars" data-template-name="recipe">
     <section id="recipeapp">
       <header id="header">
-        <h1>My Recipe</h1>
+      <h1>{{view Baking.EditableInputView valueBinding="name" editable=true}}</h1>
       </header>
       <section id="main">
           <h2>
@@ -38,14 +38,14 @@
             </tr>
           </thead>
           <tbody>
-            {{#each controller itemController="ingredient"}}
+            {{#each controller.ingredients itemController="ingredient"}}
               <tr class="row">
                 <td>{{view "Baking.EditableInputView" valueBinding="name" editable=true}}</td>
-                <td>{{view "Baking.EditableQuantityView" initialValueBinding="quantity" editable=true}}</td>
-              <td>{{requiredQuantity}}</td>
-              <td><button {{action "removeIngredient"}} class="destroy"></button></td>
+                <td>{{view "Baking.EditableQuantityView" editable=true}}</td>
+                <td>{{requiredQuantity}}</td>
+                <td><button {{action "removeIngredient"}} class="destroy"></button></td>
               </tr>
-            {{/each}}
+              {{/each}}
             <tr>
               <td colspan="4">
               {{view Ember.TextField
@@ -57,30 +57,10 @@
           </tbody>
         </table>
       </section>
-      <footer id="footer">
-        <span id="ingredient-count">
-          <strong>2</strong> todos left
-        </span>
-        <ul id="filters">
-          <li>
-            <a href="all" class="selected">All</a>
-          </li>
-          <li>
-            <a href="active">Active</a>
-          </li>
-          <li>
-            <a href="completed">Completed</a>
-          </li>
-        </ul>
-
-        <button id="clear-completed">
-          Clear completed (1)
-        </button>
-      </footer>
     </section>
 
     <footer id="info">
-      <p>Click to edit</p>
+      <p>Click blue things to edit them</p>
     </footer>
 
   </script>

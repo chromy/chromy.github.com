@@ -1,14 +1,23 @@
 Baking.EditableQuantityView = Baking.EditableInputView.extend({
     didInsertElement: function() {
+
         this._super();
-        this.set('value', this.get('controller.quantity'));
+        var me = this;
+        if (this.get("controller.model.isLoaded")) {
+            me.set('value', me.get('controller.quantity'));
+            me.addObserver('value', me.contentUpdate);
+        }
+        this.get("controller.model").on("didLoad", function() {
+            me.set('value', me.get('controller.quantity'));
+            me.addObserver('value', me.contentUpdate);
+        });
     },
 
     contentUpdate: function() {
         var value = this.get('value');
         var amount = value.match(/^\d+/)[0];
         var unit = value.match(/^\d+(\D*)/)[1];
-        this.get('controller').updateAmount(amount);
-        this.get('controller').updateUnit(unit);
-    }.observes('value')
+        this.set('controller.amount', amount);
+        this.set('controller.unit', unit);
+    }
 });

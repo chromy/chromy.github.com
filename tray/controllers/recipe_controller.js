@@ -1,23 +1,11 @@
-Baking.RecipeController = Ember.ArrayController.extend({
+Baking.RecipeController = Ember.ObjectController.extend({
     recipeServings: 1,
     userServings: 2,
-    isEditingUserServings: false,
-    isEditingRecipeServings: false,
 
     multiplier: function () {
         return  this.get('userServings') / this.get('recipeServings');
     }.property('recipeServings', 'userServings'),
 
-    editUserServings: function () {
-        this.set('isEditingUserServings', true);
-    },
-    editRecipeServings: function () {
-        this.set('isEditingRecipeServings', true);
-    },
-    acceptChanges: function () {
-        this.set('isEditingRecipeServings', false);
-        this.set('isEditingUserServings', false);
-    },
     createIngredient: function () {
         // Get the ingredient name set by the "New Name" text field
         var name = this.get('newName');
@@ -26,7 +14,7 @@ Baking.RecipeController = Ember.ArrayController.extend({
         // Create the new Ingredient model
         var ingredient = Baking.Ingredient.createRecord({
           name: name,
-          quantity: 0,
+          quantity: 1,
           unit: '',
         });
 
@@ -34,6 +22,8 @@ Baking.RecipeController = Ember.ArrayController.extend({
         this.set('newName', '');
 
         // Save the new model
+        this.get('model.ingredients').pushObject(ingredient);
         ingredient.save();
+        this.get('model').save();
     }
 });

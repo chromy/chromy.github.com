@@ -60,13 +60,13 @@ body {
 #recipeapp {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.9);
-	margin: 130px 0 40px 0;
+	margin: 130px 0 10px 0;
 	border: 1px solid #ccc;
 	position: relative;
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2),
-				0 25px 50px 0 rgba(0, 0, 0, 0.15);
+				0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
 
 #recipeapp input::-webkit-input-placeholder {
@@ -80,7 +80,7 @@ body {
 
 #recipeapp h1 {
 	position: absolute;
-	top: -120px;
+	top: -130px;
 	width: 100%;
 	font-size: 70px;
 	font-weight: bold;
@@ -148,7 +148,7 @@ body {
 }
 
 #new-ingredient {
-	padding: 16px 16px 16px 60px;
+	padding: 16px 16px 16px 16px;
 	border: none;
 	background: rgba(0, 0, 0, 0.02);
 	z-index: 2;
@@ -159,6 +159,10 @@ body {
 	position: relative;
 	z-index: 2;
 	border-top: 1px dotted #adadad;
+}
+
+#main h2 {
+    text-align: center;
 }
 
 label[for='toggle-all'] {
@@ -211,10 +215,6 @@ label[for='toggle-all'] {
     padding-left: 8px;
 }
 
-
-#ingredient-table tbody tr th.content {
-	width: 33%;
-}
 /* HACK */
 
 #ingredient-table tbody tr td.editing {
@@ -317,33 +317,6 @@ label[for='toggle-all'] {
 	margin-bottom: -1px;
 }
 
-#footer {
-	color: #777;
-	padding: 0 15px;
-	position: absolute;
-	right: 0;
-	bottom: -31px;
-	left: 0;
-	height: 20px;
-	z-index: 1;
-	text-align: center;
-}
-
-#footer:before {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 31px;
-	left: 0;
-	height: 50px;
-	z-index: -1;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
-				0 6px 0 -3px rgba(255, 255, 255, 0.8),
-				0 7px 1px -3px rgba(0, 0, 0, 0.3),
-				0 43px 0 -6px rgba(255, 255, 255, 0.8),
-				0 44px 2px -6px rgba(0, 0, 0, 0.2);
-}
-
 #ingredient-count {
 	float: left;
 	text-align: left;
@@ -390,7 +363,7 @@ label[for='toggle-all'] {
 }
 
 #info {
-	margin: 65px auto 0;
+	margin: 5px auto 0;
 	color: #a6a6a6;
 	font-size: 12px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
