@@ -21,14 +21,20 @@
       <h1>{{view Baking.EditableInputView valueBinding="name" editable=true}}</h1>
       </header>
       <section id="main">
-          <h2>
-            This recipe serves
+        <h2>
+          This recipe serves
 
-          {{view "Baking.EditableNumberView" valueBinding="recipeServings" editable=true}},
-          I want to make it for
-          {{view "Baking.EditableNumberView" valueBinding="userServings" editable=true}}.
-          </h2>
-        <table id="ingredient-table" class="table table-striped">
+        {{view "Baking.EditableNumberView" valueBinding="recipeServings" editable=true}},
+        I want to make it for
+        {{view "Baking.EditableNumberView" valueBinding="userServings" editable=true}}.
+        </h2>
+        <table id="ingredient-table" class="table">
+          <colgroup>
+            <col></col>
+            <col></col>
+            <col class="result"></col>
+            <col class="destroy"></col>
+          </colgroup>
           <thead>
             <tr>
               <th>Ingredient</th>
