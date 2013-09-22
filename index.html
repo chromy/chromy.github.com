@@ -2,23 +2,28 @@
 layout: default
 title: chromy
 ---
-<br/>
-<div class="text-center">
-  <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle">
-  <h1>I'm Hector Dearman.</h1>
-  <p class="bio">
-  I study Software Engineering at Imperial College in London.<br/>
-  You can get my <a href="hectordearman.pdf">CV</a> or see my GitHub <a href="http://github.com/chromy">profile</a>.<br/>
-  I like Computers.<br/>
-  </p>
+<div class="container">
+  <header>
+    <div class="title">HECTOR DEARMAN.</div>
+    <p class="bio">
+    I study Software Engineering at Imperial College in London.<br/>
+    You can get my <a href="hectordearman.pdf">CV</a> or see my GitHub <a href="http://github.com/chromy">profile</a>.<br/>
+    I like Computers.<br/>
+      </p>
+  </header>
+  <content>
+    <hr/>
+    <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <time class="subtle mono">{{ post.date | date: "%d %b %Y" }}</time>
+        &emsp;
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </content>
 </div>
-<hr/>
-<ul class="posts">
-  {% for post in site.posts %}
-    <li>
-      <time class="subtle mono">{{ post.date | date: "%d %b %Y" }}</time>
-      &emsp;
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+
+  <!-- <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle"> --->
+
