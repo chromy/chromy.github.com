@@ -43,10 +43,18 @@ header .title a {
 content {
 }
 
+content img {
+    max-width: 100%;
+}
+
 hr {
     width: 90%;
     border-bottom: 0;
     border-top: 1px solid #888;
+}
+
+.footnotes {
+    font-size: 12px;
 }
 
 .posts {
@@ -54,7 +62,11 @@ hr {
 }
 
 h1, h3 {
-    margin: 0;
+    margin: 10px 0;
+}
+
+.bodytext h2 {
+     margin-top: 2cm;
 }
 
 .mono {

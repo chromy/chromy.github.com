@@ -9,7 +9,9 @@
       {% include masthead.html %}
     </header>
     <content>
+      <div class="bodytext">
         {{ content }}
+      </div>
     </content>
     {% for js_line in page.extra_javascript %}
       {{ js_line }}
