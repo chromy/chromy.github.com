@@ -3,6 +3,7 @@ layout: post
 title: Generators in Lua
 byline: (via coroutines)
 place: Cambridge
+category: post
 ---
 Python has a nice generator syntax as below.
 

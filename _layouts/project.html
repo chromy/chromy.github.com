@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include header.html %}
+</head>
+<body>
+  <div class="container">
+    <header>
+      {% include masthead.html %}
+    </header>
+    <content>
+        {{ content }}
+    </content>
+    {% for js_line in page.extra_javascript %}
+      {{ js_line }}
+    {% endfor %}
+  </div>
+  <br/>
+</body>
+</html>
