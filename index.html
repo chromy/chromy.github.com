@@ -2,38 +2,44 @@
 layout: default
 title: chromy
 ---
-<div class="container">
-  <header>
+<header>
     <div class="title">HECTOR DEARMAN.</div>
-    <p class="bio">
+          </header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+  <p class="bio">
     I study Software Engineering at Imperial College in London.<br/>
     My email is <a href="mailto:hectordearman@tacticalgrace.com">hectordearman@tacticalgrace.com</a>.<br/>
     You can get my <a href="hectordearman.pdf">CV</a> or see my GitHub <a href="http://github.com/chromy">profile</a>.<br/>
     I like Computers.<br/>
-      </p>
-  </header>
-  <content>
-    <hr/>
-    <h2>Projects</h2>
-    <ul class="posts">
-    {% for post in site.categories.project %}
-      <li>
+    </p>
+  </div>
+  </div>
+<div class="row">
+    <div class="col-md-6">
+      <h2>Projects</h2>
+      <ul class="posts">
+        {% for post in site.categories.project %}
+        <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-    </ul>
-    <h2>Posts</h2>
-    <ul class="posts">
-    {% for post in site.categories.post %}
-      <li>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Posts</h2>
+      <ul class="posts">
+        {% for post in site.categories.post %}
+        <li>
         <time class="subtle mono">{{ post.date | date: "%d %b %y" }}</time>
         &emsp;
         <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-    </ul>
-  </content>
-</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 
-  <!-- <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle"> --->
+      <!-- <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle"> --->
 
