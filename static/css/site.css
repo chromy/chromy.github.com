@@ -39,6 +39,7 @@ header .title a {
     max-width: 830px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -70,12 +71,10 @@ h1, h3 {
      margin-top: 2cm;
 }
 
-.mono {
-    font-family: monospace;
-}
-
-.subtle {
-    color: #555;
+li time {
+    color: #888;
+    font-size: 14px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
 }
 
 /********************************************************/
