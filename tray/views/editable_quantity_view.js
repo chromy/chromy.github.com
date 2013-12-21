@@ -15,8 +15,9 @@ Baking.EditableQuantityView = Baking.EditableInputView.extend({
 
     contentUpdate: function() {
         var value = this.get('value');
-        var amount = value.match(/^\d+/)[0];
-        var unit = value.match(/^\d+(\D*)/)[1];
+        var amount = value.match(/^\d+[.\/]\d+/)[0];
+        var unit = value.match(/^\d+[.\/]\d+(\D*)/)[1];
+        amount = eval(amount);
         this.set('controller.amount', amount);
         this.set('controller.unit', unit);
     }
