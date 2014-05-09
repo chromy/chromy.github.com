@@ -5,7 +5,7 @@ byline: (via coroutines)
 place: Cambridge
 category: post
 ---
-Python has a nice generator syntax as below.
+Python has a nice generator syntax:
 
 {% highlight python %}
 def unique(alist):
@@ -37,15 +37,18 @@ local unique = function(alist)
         end
     end
 end
+
+for x in unique({1, 1, 2, 3, 2}) do
+    print(x)
+end
 {% endhighlight %}
 
-This is okay but not nearly as nice.
-We've had to
-explicitly create a closure which can be awkward sometimes.
-We also had to use the 'next' function to explicitly iterate over the elements.
-Finally the embedded repeat loop to skip seen elements is quite ugly.
+This is not nearly as nice.
+We've had to explicitly create a closure, use the 'next' function to iterate 
+over the elements and embedded a repeat loop to skip seen elements. 
+The result is really difficult to read.
 
-We can get something closer to the Python syntax in Lua by (ab)using coroutines.
+We can get something closer to the Python syntax in Lua using coroutines.
 
 {% highlight lua %}
 function make_iter(f)
