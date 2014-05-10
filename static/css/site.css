@@ -78,7 +78,6 @@ h1, h3 {
 .posts li time {
     color: #888;
     font-size: 14px;
-    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
     float: right;
 }
 
