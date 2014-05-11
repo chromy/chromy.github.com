@@ -5,14 +5,14 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <div class="masthead">
       {% include masthead.html %}
-    </header>
-    <content>
+    </div>
+    <div class="content">
       <div class="bodytext">
         {{ content }}
       </div>
-    </content>
+    </div>
     {% for js_line in page.extra_javascript %}
       {{ js_line }}
     {% endfor %}
