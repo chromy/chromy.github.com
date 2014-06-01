@@ -1,2 +1,6 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+{% for js_line in page.extra_javascript %}
+{{ js_line }}
+{% endfor %}
+
