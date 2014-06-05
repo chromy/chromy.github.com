@@ -1,2 +1,3 @@
 exclude: [scripts]
 markdown: kramdown
+permalink: /:categories/:title

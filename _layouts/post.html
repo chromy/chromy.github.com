@@ -4,24 +4,25 @@
   {% include header.html %}
 </head>
 <body>
-  <div class="container">
-    <div class="masthead">
-      <div class="title"><a href="/">HECTOR DEARMAN.</a></div>
-    </div>
-    <div class="content" >
-      <div class="header">
-          <h1><a href="#">{{ page.title }}</a></h1>
-          <h3>{{ page.byline }}</h3>
-      </div>
-      <div class="subtle">
-        <time>{{ page.date | date: "%d %B %Y" }}</time>
-        &mdash;
-        <place>{{ page.place }}</place>
-      </div>
-      <br/>
-      {{ content }}
-    </div>
-  </div> <!-- container -->
+  <div id="masthead">
+    <div class="title"><a href="/">HJD.</a></div>
+  </div>
+  <div class="column">
+    <article class="content">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+    </article>
+  </div>
   {% include footer.html %}
 </body>
 </html>
+
+<!-- <h3>{{ page.byline }}</h3> -->
+<!--
+<div class="subtle">
+  <time>{{ page.date | date: "%d %B %Y" }}</time>
+  &mdash;
+  <place>{{ page.place }}</place>
+</div>
+-->
+

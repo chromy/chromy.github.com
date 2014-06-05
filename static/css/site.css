@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "OstrichSansInline-Regular";
-    src: url('/static/type/OstrichSansInline-Regular.otf');
-}
-
 html { 
     height: 100%;
 }
@@ -12,24 +7,159 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    color: #333;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 18px;
-    line-height: 135%;
 }
 
-.masthead .title {
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Typography */
+
+@font-face {
+    font-family: 'Charter-Regular';
+    src: url('/static/type/charter_regular-webfont.eot');
+    src: url('/static/type/charter_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/type/charter_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    line-height: 150%;
+    font-size: 19px;
+    font-family: Charter-Regular, serif;
+    color: rgb(49, 49, 48);
+}
+
+h1 {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 36px;
+    margin-top: 1em;
+    margin-bottom: 1em; 
+}
+
+/* Links in body text are distinguished by low underline. */
+article p a {
+    text-decoration: none;
+    color: rgb(49, 49, 48);
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(49, 49, 48);
+}
+
+/* Footnotes are not called out as links, we trust users to discover they are clickable... */
+a.footnote {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.footnotes {
+    font-size: 14px;
+    line-height: 140%;
+}
+
+article p {
+    margin-top: 0;
+    margin-bottom: 1.2em 
+}
+
+pre {
+    display: block;
+    font-size: 13px;
+    line-height: 1.42;
+}
+
+code {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* Asides are in lighter sans-serif. */
+aside {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    color: rgb(89, 89, 88);
+}
+
+/* Layout */
+
+#masthead {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.column {
+    max-width: 600px;
+    position: relative;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+aside {
+    top: auto;
+    position: absolute;
+    width: 150px;
+    /* Right asides are default. */
+    margin-right: -170px;
+    right: 0;
+}
+
+aside.right {
+    margin-right: -170px;
+    right: 0;
+}
+
+aside.left {
+    margin-left: -170px;
+    left: 0;
+}
+
+/* Code Snippets */
+
+pre {
+    padding: 9.5px;
+    margin: 0 0 10px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* Masthead */
+
+@font-face {
+    font-family: "OstrichSansInline-Regular";
+    src: url('/static/type/OstrichSansInline-Regular.otf');
+}
+
+#masthead .title {
     font-family: 'OstrichSansInline-Regular', serif;
     font-size: 100px;
-    margin-top: 30px; 
-    margin-bottom: 40px; 
-    line-height: 80%;
+    margin-top: 0; 
+    margin-bottom: 0; 
+    line-height: 39%;
 }
 
-.masthead .title a {
+#masthead .title a {
     text-decoration: none;
     color: inherit;
 }
+
+/*
 
 .container {
     min-height: 100%;
@@ -78,25 +208,9 @@ hr {
     border-top: 1px solid #888;
 }
 
-.aside {
-    margin-right: -170px;
-    position: absolute;
-    right: 0;
-    top: auto;
-    width: 150px;
-}
 
-.left-aside {
-    margin-left: -170px;
-    position: absolute;
-    left: 0;
-    top: auto;
-    width: 150px;
-}
 
-.footnotes {
-    font-size: 12px;
-}
+
 
 h1, h3 {
     margin: 10px 0;
@@ -118,10 +232,11 @@ h1, h3 {
     margin-right: auto;
     text-align: center;
 }
-
+*/
 
 
 /********************************************************/
+/*
 .header h3 { 
     margin: 0 0;
     margin-bottom: 10px; 
@@ -150,7 +265,7 @@ h1, h3 {
     padding-left: 5px;
     padding-top: 5px;
 }
-
+*/
 /* background-image: url("/static/img/pw_maze_white.png"); */
 /*
 .header {
@@ -164,5 +279,3 @@ h1, h3 {
     box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
 }
 */
-
-
