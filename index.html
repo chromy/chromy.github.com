@@ -1,10 +1,11 @@
 ---
 layout: default
 title: chromy
+addBootstrap: true
 ---
 <div class="container">
   <div class="masthead">
-    <div class="title">HECTOR DEARMAN.</div>
+    <h1>HECTOR DEARMAN.</h1>
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -17,6 +18,7 @@ title: chromy
       </p>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-6">
       <h2>Posts</h2>
@@ -24,9 +26,7 @@ title: chromy
         {% for post in site.categories.post %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
-          <span>{{ post.date | date: "%d %B %y" }}</span>
-          &emsp;
-          </li>
+        </li>
         {% endfor %}
       </ul>
     </div>
@@ -46,7 +46,6 @@ title: chromy
 <div class="below">
   <div class="center">
     <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle center">
-    <p>.</p>
   </div>
 </div>
 

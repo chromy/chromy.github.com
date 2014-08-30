@@ -33,11 +33,33 @@ body {
     color: rgb(49, 49, 48);
 }
 
+/* Headings are sans-serif */
 h1 {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
     font-size: 36px;
+    font-weight: normal;
     margin-top: 1em;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 28px;
+    margin-top: 1em;
+}
+
+/**/
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none; 
+}
+
+article {
+    margin-top: 100px;
+    width: 700px;
 }
 
 /* Links in body text are distinguished by low underline. */
@@ -82,21 +104,27 @@ aside {
 
 /* Layout */
 
-#masthead {
+#corner {
     position: absolute;
     left: 0;
     top: 0;
-    text-transform: uppercase;
-    font-size: 40px;
-    line-height: 40px;
     padding-left: 5px;
     padding-top: 5px;
 }
 
+.masthead {
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.top {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+}
+
 .column {
-    max-width: 600px;
+    max-width: 960px;
     position: relative;
-    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -104,20 +132,23 @@ aside {
 aside {
     top: auto;
     position: absolute;
-    width: 150px;
+    width: 180px;
     /* Right asides are default. */
-    margin-right: -170px;
+    /* margin-right: -170px; */
     right: 0;
+    text-align: left;
 }
 
 aside.right {
     margin-right: -170px;
     right: 0;
+    text-align: left;
 }
 
 aside.left {
     margin-left: -170px;
     left: 0;
+    text-align: right;
 }
 
 /* Code Snippets */
@@ -146,17 +177,65 @@ pre code {
     src: url('/static/type/OstrichSansInline-Regular.otf');
 }
 
-#masthead .title {
-    font-family: 'OstrichSansInline-Regular', serif;
-    font-size: 100px;
+.masthead h1 {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 60px;
     margin-top: 0; 
-    margin-bottom: 0; 
-    line-height: 39%;
+    margin-bottom: 0.2em; 
+    line-height: 100%;
 }
 
-#masthead .title a {
+.masthead h1 a {
     text-decoration: none;
     color: inherit;
+}
+
+/* Bootstrap */
+
+.container {
+    min-height: 100%;
+    max-width: 800px;
+}
+
+/* Easter Egg */
+
+.below {
+    left: 0;
+    right: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-image: url(/static/img/skulls.png);
+}
+
+.below .center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.below img {
+    box-shadow: 0 0 10px #AFAF9B;
+}
+
+.posts {
+    padding: 0;
+    list-style-type: none;
+}
+
+.posts li {
+    list-style-type: none;
+}
+
+.posts li span {
+    color: #888;
+    font-size: 14px;
+    float: right;
+}
+/* Hacks */
+@media(max-width:767px) {
+    .bio br {
+        display: none;
+    }
 }
 
 /*
@@ -183,34 +262,13 @@ pre code {
     max-width: 100%;
 }
 
-.posts {
-    padding-left: 0;
-    list-style-type: none;
-}
 
-.posts {
-    padding: 0;
-}
-
-.posts li {
-    list-style-type: none;
-}
-
-.posts li span {
-    color: #888;
-    font-size: 14px;
-    float: right;
-}
 
 hr {
     width: 90%;
     border-bottom: 0;
     border-top: 1px solid #888;
 }
-
-
-
-
 
 h1, h3 {
     margin: 10px 0;
@@ -219,20 +277,6 @@ h1, h3 {
 .bodytext h2 {
      margin-top: 2cm;
 }
-
-.below {
-    left: 0;
-    right: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.below .center {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-*/
 
 
 /********************************************************/

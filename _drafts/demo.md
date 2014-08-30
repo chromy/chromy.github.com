@@ -14,10 +14,6 @@ The great question certainly was, what? Alice looked all round her at the flower
 
 She stretched herself up on [tiptoe](http://google.com), and peeped over the edge of the mushroom, and her eyes immediately met those of a large caterpillar, that was sitting on the top with its arms folded, quietly smoking a long hookah, and taking not the smallest notice of her or of anything else.
 
-<aside class="left">
-    This is a left margin note.
-</aside>
-
 Single quotes 'Why did they live at the bottom of a well?'
 Double quotes "Why did they live at the bottom of a well?"
 Irony mark&#11822;
