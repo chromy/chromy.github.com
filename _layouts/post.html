@@ -5,13 +5,15 @@
 </head>
 <body>
   <div class="column">
-    <div class="top"><time>{{ page.date | date: "%d %B %Y" }}</time> - <a href="/">Hector Dearman</a></div>
+    {% include masthead.html %}
     <article class="content">
     <h1>{{ page.title }}</h1>
     {{ content }}
+    <div class="top"><time>{{ page.date | date: "%d %B %Y" }}</time></div>
     </article>
   </div>
   {% include footer.html %}
+  {% include javascript.html %}
 </body>
 </html>
 
