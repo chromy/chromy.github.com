@@ -1,6 +1,5 @@
 Baking.EditableQuantityView = Baking.EditableInputView.extend({
     didInsertElement: function() {
-
         this._super();
         var me = this;
         if (this.get("controller.model.isLoaded")) {
@@ -15,8 +14,12 @@ Baking.EditableQuantityView = Baking.EditableInputView.extend({
 
     contentUpdate: function() {
         var value = this.get('value');
-        var amount = value.match(/^\d+[.\/]\d+/)[0];
-        var unit = value.match(/^\d+[.\/]\d+(\D*)/)[1];
+        console.log(value);
+        console.log(value);
+        var match = value.match(/(\d+[.\/]?\d+)(\D*)/);
+        var amount = match[1];
+        var unit = match[2];
+        // TODO: Don't use eval
         amount = eval(amount);
         this.set('controller.amount', amount);
         this.set('controller.unit', unit);
