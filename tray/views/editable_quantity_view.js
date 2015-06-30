@@ -14,9 +14,7 @@ Baking.EditableQuantityView = Baking.EditableInputView.extend({
 
     contentUpdate: function() {
         var value = this.get('value');
-        console.log(value);
-        console.log(value);
-        var match = value.match(/(\d+[.\/]?\d+)(\D*)/);
+        var match = value.match(/(\d+[.\/]?\d*)(\D*)/);
         var amount = match[1];
         var unit = match[2];
         // TODO: Don't use eval
