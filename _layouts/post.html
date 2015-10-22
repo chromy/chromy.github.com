@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {% include header.html %}
+  {% include head.html %}
 </head>
 <body>
   <div class="column">
-    {% include masthead.html %}
+    {% include header.html %}
     <article id="content">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
-    <div class="top"><time>{{ page.date | date: "%d %B %Y" }}</time></div>
+      <h1>{{ page.title }}</h1>
+      {{ content }}
     </article>
+    {% include footer.html %}
   </div>
-  {% include footer.html %}
   {% include javascript.html %}
-  <script>
-    <!-- Scroll past masthead -->
-    document.getElementById('content').scrollIntoView()
-  </script>
 </body>
 </html>
 

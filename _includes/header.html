@@ -1,27 +1,5 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The website of Hector Dearman">
-<meta name="author" content="Hector Dearman">
+<div class="header">
+  <time>{{ page.date | date: "%d %B %Y" }}</time> /
+  <a href="/">Hector Dearman</a>
+</div>
 
-<title>{{ page.title }}</title>
-
-<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
-
-<link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
-{% if page.addBootstrap %}
-  <link rel="stylesheet" type='text/css' href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-{% endif %}
-<link rel="stylesheet" type="text/css" href="/static/css/syntax.css"/>
-<link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
-
-
-<!-- Google Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-43044975-2', 'tacticalgrace.com');
-  ga('send', 'pageview');
-</script>

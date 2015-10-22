@@ -36,7 +36,7 @@ body {
 /* Headings are sans-serif */
 h1 {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 36px;
+    font-size: 64px;
     font-weight: normal;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -48,7 +48,21 @@ h2 {
     margin-top: 1em;
 }
 
-/**/
+.header, .footer {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    color: rgb(89, 89, 88);
+    font-size: 13px;
+}
+
+/* Asides are in lighter sans-serif. */
+aside {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    color: rgb(89, 89, 88);
+    font-size: 13px;
+}
+
+
+/* Links */
 a {
     text-decoration: none;
 }
@@ -58,12 +72,12 @@ a:hover {
 }
 
 article {
-    margin-top: 100px;
+    margin-top: 20px;
     width: 700px;
 }
 
 /* Links in body text are distinguished by low underline. */
-article p a {
+p a {
     text-decoration: none;
     color: rgb(49, 49, 48);
     padding-bottom: 2px;
@@ -96,12 +110,6 @@ code {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
-/* Asides are in lighter sans-serif. */
-aside {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    color: rgb(89, 89, 88);
-}
-
 /* Layout */
 
 #corner {
@@ -128,22 +136,8 @@ aside {
     top: auto;
     position: absolute;
     width: 180px;
-    /* Right asides are default. */
-    /* margin-right: -170px; */
     right: 0;
     text-align: left;
-}
-
-aside.right {
-    margin-right: -170px;
-    right: 0;
-    text-align: left;
-}
-
-aside.left {
-    margin-left: -170px;
-    left: 0;
-    text-align: right;
 }
 
 /* Code Snippets */
@@ -176,7 +170,6 @@ pre code {
     font-size: 20px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
     padding: 50px 0 20px 0;
-    border-bottom: 1px solid #eee;
     height: 100%;
 }
 
@@ -209,19 +202,9 @@ pre code {
 }
 
 #masthead ul li h1 {
-    font-size: 30px;
     margin-top: 0; 
     margin-bottom: 0.2em; 
     line-height: 100%;
-}
-
-/* Footer */
-
-.footer {
-    margin-top: 50px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    background-color: #eee;
 }
 
 /* Bootstrap */
@@ -267,12 +250,6 @@ pre code {
 }
 
 /* Hacks */
-@media(max-width:767px) {
-    .bio br {
-        display: none;
-    }
-}
-
 #content {
     padding-top: 5px;
 }
