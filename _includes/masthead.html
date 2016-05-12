@@ -1,8 +1,14 @@
 <div id="masthead">
-  <ul>
-    <li><h1><a href="/">Hector Dearman</a></h1></li>
-    <li {% if page.title == "about"%}class="active"{% endif %}><a href="/about">About</a></li>
-  </ul>
+    <div class="container">
+        <a class="mark" href="/">Hector Dearman</a>
+        <span class="middle"></span>
+        <div class="nav">
+            <ul>
+                <li><a {% if page.title == "about" %}class="active"{% endif %} href="/about">About</a></li>
+                <li><a {% if page.title == "projects" %}class="active"{% endif %} href="/projects">Projects</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 

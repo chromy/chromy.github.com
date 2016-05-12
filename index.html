@@ -1,34 +1,24 @@
 ---
 layout: default
 title: chromy
-addBootstrap: true
 ---
-<div class="container">
-  {% include masthead.html %}
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Posts</h2>
-      <ul class="posts">
-        {% for post in site.categories.post %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
+{% include masthead.html %}
+<div class="container content listing">
+    {% assign posts_and_projects = site.categories.post | concat: site.categories.project  %}
+    <ul>
+        {% for item in posts_and_projects %}
+            {% capture year %}{{ item.date | date: '%Y' }}{% endcapture %}
+            {% if year != lastyear %}
+                <h3>{{ item.date | date: "%Y" }}</h3>
+            {% endif %}
+            <li><a href="{{ item.url }}">
+                <span>{{ item.title }}</span>
+                <span class="date">{{ item.date | date: "%B, %-d"}}</span>
+            </a></li>
+            {% assign lastyear = year %}
         {% endfor %}
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h2>Projects</h2>
-      <ul class="posts">
-        {% for post in site.categories.project %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
+    </ul>
 </div>
-
 <div class="below">
   <div class="center">
     <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle center">

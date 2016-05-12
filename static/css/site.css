@@ -1,18 +1,26 @@
-html { 
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
     height: 100%;
 }
 
 body {
-    border-top: 8px solid #333;
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 /* Typography */
@@ -26,192 +34,117 @@ body {
     font-style: normal;
 }
 
-body {
-    line-height: 150%;
+html {
+    line-height: 1.6;
     font-size: 19px;
-    font-family: Charter-Regular, serif;
-    color: rgb(49, 49, 48);
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    font-weight: 400;
+    color: rgba(255, 217, 0, 0.65);
 }
 
-/* Headings are sans-serif */
-h1 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 64px;
-    font-weight: normal;
-    margin-top: 1em;
-    margin-bottom: 1em;
+@media (min-width: 38em) {
+    html {
+        font-size: 20px;
+    }
 }
 
-h2 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 28px;
-    margin-top: 1em;
-}
-
-.header, .footer {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    color: rgb(89, 89, 88);
-    font-size: 13px;
-}
-
-/* Asides are in lighter sans-serif. */
-aside {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    color: rgb(89, 89, 88);
-    font-size: 13px;
-}
-
-
-/* Links */
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none; 
-}
-
-article {
-    margin-top: 20px;
-    width: 700px;
-}
-
-/* Links in body text are distinguished by low underline. */
-p a {
-    text-decoration: none;
-    color: rgb(49, 49, 48);
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgb(49, 49, 48);
-}
-
-/* Footnotes are not called out as links, we trust users to discover they are clickable... */
-a.footnote {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.footnotes {
-    font-size: 14px;
-    line-height: 140%;
-}
-
-article p {
-    margin-top: 0;
-    margin-bottom: 1.2em 
-}
-
-pre {
-    display: block;
-    font-size: 13px;
-    line-height: 1.42;
-}
-
-code {
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-}
-
-/* Layout */
-
-#corner {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-left: 5px;
-    padding-top: 5px;
-}
-
-.top {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 16px;
-}
-
-.column {
-    max-width: 960px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-aside {
-    top: auto;
-    position: absolute;
-    width: 180px;
-    right: 0;
-    text-align: left;
-}
-
-/* Code Snippets */
-
-pre {
-    padding: 9.5px;
-    margin: 0 0 10px;
-    white-space: pre-wrap;
-    word-break: break-all;
-    word-wrap: break-word;
-}
-
-pre code {
-    padding: 0;
-    font-size: inherit;
-    color: inherit;
-    white-space: pre-wrap;
-    background-color: transparent;
-    border-radius: 0;
+/* */
+.container {
+    margin: 0 auto;
+    max-width: 36rem;
 }
 
 /* Masthead */
 
-@font-face {
-    font-family: "OstrichSansInline-Regular";
-    src: url('/static/type/OstrichSansInline-Regular.otf');
-}
-
 #masthead {
-    font-size: 20px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    padding: 50px 0 20px 0;
-    height: 100%;
+    background: rgba(255, 217, 0, 0.65);
+    color: white;
+    font-size: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* font-variant: small-caps; */
 }
 
-#masthead ul {
-    display: block;
-    margin: 0;
-    padding: 0;
+#masthead a {
+    display: inline-block;
+    padding: 5px 0;
+    border-bottom: 4px solid transparent;
+    color: #fff;
 }
 
-#masthead ul li {
+#masthead a:hover {
+    border-color: #fff;
+}
+
+#masthead a.active {
+    border-color: #fff;
+}
+
+#masthead .nav {
+    display: inline-block;
+    float: right;
+}
+
+#masthead .nav ul {
     display: inline-block;
     margin: 0;
     padding: 0;
-    list-style-type: none;
-    height: 100%;
 }
 
-#masthead ul li a {
-    color: inherit;
+#masthead .nav ul li {
+    display: inline-block;
     text-decoration: none;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-right: 20px;
+    padding: 0;
 }
 
-#masthead ul li a:link, #masthead ul li a:visited {
+#masthead .nav ul li a {
+    margin-left: 16px;
 }
 
-#masthead ul li a:link {
+#masthead .mark {
+    display: inline-block;
 }
 
-#masthead ul li h1 {
-    margin-top: 0; 
-    margin-bottom: 0.2em; 
-    line-height: 100%;
+/* Listing */
+.listing ul {
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-/* Bootstrap */
+.listing ul li {
+    list-style: none;
+}
 
-.container {
-    min-height: 100%;
-    max-width: 800px;
+.listing a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #444;
+}
+
+.listing li span {
+    display: inline-block;
+}
+
+.listing li .date {
+    margin-left: auto;
+    font-size: 80%;
+    color: #aaa;
+}
+
+@media (max-width: 38em) {
+    .listing li .date {
+        visibility: hidden;
+    }
+}
+
+.listing h3 {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
 }
 
 /* Easter Egg */
@@ -232,108 +165,9 @@ pre code {
 
 .below img {
     box-shadow: 0 0 10px #AFAF9B;
+    border-radius: 50%;
 }
 
-.posts {
-    padding: 0;
-    list-style-type: none;
-}
-
-.posts li {
-    list-style-type: none;
-}
-
-.posts li span {
-    color: #888;
-    font-size: 14px;
-    float: right;
-}
-
-/* Hacks */
-#content {
-    padding-top: 5px;
-}
-
-#content img {
-    max-width: 100%;
-}
-
-/*
-
-.container {
+.content {
     min-height: 100%;
 }
-
-@media (min-width: 868px) {
-  .container {
-    max-width: 840px;
-  }
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-#content {
-    position: relative;
-}
-
-hr {
-    width: 90%;
-    border-bottom: 0;
-    border-top: 1px solid #888;
-}
-
-h1, h3 {
-    margin: 10px 0;
-}
-
-.bodytext h2 {
-     margin-top: 2cm;
-}
-
-
-/********************************************************/
-/*
-.header h3 { 
-    margin: 0 0;
-    margin-bottom: 10px; 
-}
-
-.header a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.header a:hover {
-    text-shadow: none;
-    transition: all 0.1s linear;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: url("/static/img/rainbow.gif");
-}
-
-#homelink {
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-transform: uppercase;
-    font-size: 40px;
-    line-height: 40px;
-    padding-left: 5px;
-    padding-top: 5px;
-}
-*/
-/* background-image: url("/static/img/pw_maze_white.png"); */
-/*
-.header {
-    position: relative;
-    text-align: center;
-    background-color: #444;
-    background-image: url("/static/img/classy_fabric.png");
-    color: #222;
-    padding: 10px 0;
-    text-shadow: 0px 1px 1px #4d4d4d;
-    box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-}
-*/
