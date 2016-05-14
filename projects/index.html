@@ -1,11 +1,11 @@
 ---
 layout: default
-title: chromy
+title: Projects
 ---
 {% include masthead.html %}
 <div class="container content listing">
     <ul>
-        {% for item in site.posts %}
+        {% for item in site.categories.project %}
             {% capture year %}{{ item.date | date: '%Y' }}{% endcapture %}
             {% if year != lastyear %}
                 <h3>{{ item.date | date: "%Y" }}</h3>
@@ -18,11 +18,3 @@ title: chromy
         {% endfor %}
     </ul>
 </div>
-<div class="below">
-  <div class="center">
-    <img src="/static/img/avatar.png" alt="A picture of my Gravatar" width="256" height="256" class="img-circle center">
-  </div>
-</div>
-
-
-
