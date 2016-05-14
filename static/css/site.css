@@ -4,10 +4,37 @@
     box-sizing: border-box;
 }
 
+p {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
 html {
+    font-size: 24px;
     box-sizing: border-box;
     height: 100%;
+    line-height: 1.6;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 400;
+    color: #444;
 }
+
+@media all {html {font-size: 22px;}}
+@media all and (max-width:1000px){html {font-size: 22px;}}
+@media all and (max-width:960px){html {font-size: 21px;}}
+@media all and (max-width:920px){html {font-size: 20px;}}
+@media all and (max-width:880px){html {font-size: 19px;}}
+@media all and (max-width:840px){html {font-size: 18px;}}
+@media all and (max-width:800px){html {font-size: 17px;}}
+@media all and (max-width:760px){html {font-size: 16px;}}
+@media all and (max-width:720px){html {font-size: 15px;}}
+@media all and (max-width:680px){html {font-size: 14px;}}
+@media all and (max-width:640px){html {font-size: 13px;}}
+@media all and (max-width:600px){html {font-size: 12px;}}
+@media all and (max-width:560px){html {font-size: 11px;}}
+@media all and (max-width:520px){html {font-size: 10px;}}
+@media all and (max-width:520px){html {font-size: 16px;}}
 
 body {
     margin: 0;
@@ -23,47 +50,33 @@ a:hover {
     text-decoration: none;
 }
 
-/* Typography */
-
-@font-face {
-    font-family: 'Charter-Regular';
-    src: url('/static/type/charter_regular-webfont.eot');
-    src: url('/static/type/charter_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/static/type/charter_regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-html {
-    line-height: 1.6;
-    font-size: 19px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
-    font-weight: 400;
-    color: #444;
-}
-
-@media (min-width: 38em) {
-    html {
-        font-size: 20px;
-    }
-}
 
 /* */
 .container {
     margin: 0 auto;
     max-width: 36rem;
+    font-size: 100%;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.article {
+    padding-top: 2rem;
+    margin: 0 4rem;
+    position: relative;
 }
 
 /* Masthead */
 
 #masthead {
     background: rgba(255, 217, 0, 0.65);
+    /* font-variant: small-caps; */
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
     color: white;
-    font-size: 22px;
     padding-left: 5px;
     padding-right: 5px;
-    /* font-variant: small-caps; */
 }
 
 #masthead a {
@@ -107,6 +120,10 @@ html {
 }
 
 /* Listing */
+.listing {
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+}
+
 .listing ul {
     padding-left: 40px;
     padding-right: 40px;
@@ -133,7 +150,7 @@ html {
     color: #aaa;
 }
 
-@media (max-width: 38em) {
+@media (max-width: 520px) {
     .listing li .date {
         visibility: hidden;
     }
@@ -169,6 +186,89 @@ html {
     border-radius: 50%;
 }
 
-.content {
-    min-height: 100%;
+/* Links in body text are distinguished by low underline. */
+p a {
+    text-decoration: none;
+    color: rgb(49, 49, 48);
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(49, 49, 48);
 }
+
+/* Footnotes are not called out as links, we trust users to discover they are clickable... */
+a.footnote {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.footnotes {
+    font-size: 14px;
+    line-height: 140%;
+}
+
+/* Asides are in lighter sans-serif. */
+aside {
+    display: block;
+    position: absolute;
+    float: left;
+    left: 30rem;
+    width: 7rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    clear: both;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 70%;
+    color: #ccc;
+}
+
+@media (max-width: 56rem) {
+    aside {
+        position: inherit;
+        float: inherit;
+        left: 0;
+        padding: 0.5rem;
+        background: #fefefe;
+        width: 90%;
+        border: 1px solid #ccc;
+        border-left: 3px solid #ccc;
+    }
+}
+
+/* The heading */
+.title-block {
+    display: block;
+    position: absolute;
+    float: left;
+    margin-left: 0;
+    left: -9rem;
+    width: 7rem;
+    text-align: right;
+    list-style-type: none;
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 56rem) {
+    .title-block {
+        position: inherit;
+        float: inherit;
+        left: 0;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.title-block topic {
+    display: block;
+    font-size: 120%;
+}
+
+.title-block sobriquet {
+    display: none;
+}
+
+.title-block date {
+    display: block;
+    font-size: 80%;
+    color: #aaa;
+}
+
