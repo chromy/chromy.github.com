@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Demo All the Things
-byline: The byline
+subtitle: The byline
 place: Location
 category: post
 ---
