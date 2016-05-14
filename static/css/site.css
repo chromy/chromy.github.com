@@ -68,6 +68,12 @@ a:hover {
     position: relative;
 }
 
+
+@media (max-width: 520px) {
+    .article {
+        margin: 0 2rem;
+    }
+}
 /* Masthead */
 
 #masthead {
