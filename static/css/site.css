@@ -181,13 +181,13 @@ a:hover {
     background-image: url(/static/img/skulls.png);
 }
 
-.below .center {
+.center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.below img {
+.img-circle {
     box-shadow: 0 0 10px #AFAF9B;
     border-radius: 50%;
 }
