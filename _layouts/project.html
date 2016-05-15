@@ -4,19 +4,15 @@
   {% include head.html %}
 </head>
 <body>
-  <div class="container">
-    <div class="masthead">
-      {% include masthead.html %}
-    </div>
-    <div class="content">
-      <div class="bodytext">
+  {% include masthead.html %}
+  <div class="container content">
+    <div class="article">
+        {% include header.html %}
         {{ content }}
-      </div>
     </div>
     {% for js_line in page.extra_javascript %}
       {{ js_line }}
     {% endfor %}
   </div>
-  <br/>
 </body>
 </html>
