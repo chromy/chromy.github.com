@@ -8,6 +8,12 @@ require "jekyll"
 GITHUB_REPONAME = "chromy/chromy.github.com"
 
 
+desc "Start a new post"
+task :post, [:title] do |t, args|
+  system "./scripts/new_post.sh " + args[:title]
+end
+
+
 desc "Generate blog files"
 task :generate do
   Jekyll::Site.new(Jekyll.configuration({

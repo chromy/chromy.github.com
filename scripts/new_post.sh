@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+display_usage() {
+    echo "Usage: new_post.sh TITLE"
+}
+
 todays_date() {
     date "+%Y-%m-%d"
 }
@@ -25,6 +29,7 @@ main() {
     vi $name
 }
 
+[ $# -eq 0 ] && { display_usage; exit 1; }
 main $1
 
 
