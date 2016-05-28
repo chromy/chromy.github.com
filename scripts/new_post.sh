@@ -11,7 +11,7 @@ template() {
 layout: post
 category: post
 title: $1
-byline: 
+subtitle: 
 place: London
 ---
 EOF
