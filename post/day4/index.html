@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The website of Hector Dearman">
+<meta name="author" content="Hector Dearman">
+
+<title>Minimalist Javascript Test Framework</title>
+
+<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico'/>
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43044975-2', 'tacticalgrace.com');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+<body>
+  <div id="masthead">
+    <div class="container">
+        <a class="mark" href="/">Hector Dearman</a>
+        <span class="middle"></span>
+        <div class="nav">
+            <ul>
+                <li><a  href="/about">About</a></li>
+                <li><a  href="/projects">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="container content">
+    <div class="article">
+        <div class="title-block">
+    <topic>Minimalist Javascript Test Framework</topic>
+    <sobriquet></sobriquet>
+    <date>27 June 2013</date>
+</div>
+
+
+        <p>I was trying to write some Javascript (which I wanted to test) on the train without the internet
+so I ended up with this tiny test framework.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">AssertionError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;AssertionError&quot;</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">message</span> <span class="o">||</span> <span class="s2">&quot;Assertion Error&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">AssertionError</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span>
+<span class="nx">AssertionError</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">AssertionError</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Tests</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">tests</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="nx">Tests</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">test_case</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">test_case</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">Tests</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">testcase</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">total</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nx">testcase</span><span class="p">();</span>
+            <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">failed</span><span class="o">++</span><span class="p">;</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">AssertionError</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">failed</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="nx">total</span> <span class="o">+</span> <span class="s2">&quot; failed (&quot;</span> <span class="o">+</span> <span class="nx">failed</span><span class="o">/</span><span class="nx">total</span> <span class="o">+</span> <span class="s2">&quot;%)&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">assert</span><span class="p">(</span><span class="nx">expr</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">expr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">AssertionError</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+        <div class="footer">
+  <time>27 June 2013</time> /
+  <a href="/">Hector Dearman</a>
+</div>
+
+    </div>
+  </div>
+  
+
+
+</body>
+</html>
+
+<!-- <h3>Now to find a real one...</h3> -->
+<!--
+<div class="subtle">
+  <time>27 June 2013</time>
+  &mdash;
+  <place>Somewhere between London and Cambridge</place>
+</div>
+-->
+

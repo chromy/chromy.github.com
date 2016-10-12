@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The website of Hector Dearman">
+<meta name="author" content="Hector Dearman">
+
+<title>Gravatar to Ico</title>
+
+<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico'/>
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43044975-2', 'tacticalgrace.com');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+<body>
+  <div id="masthead">
+    <div class="container">
+        <a class="mark" href="/">Hector Dearman</a>
+        <span class="middle"></span>
+        <div class="nav">
+            <ul>
+                <li><a  href="/about">About</a></li>
+                <li><a  href="/projects">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="container content">
+    <div class="article">
+        <div class="title-block">
+    <topic>Gravatar to Ico</topic>
+    <sobriquet></sobriquet>
+    <date>25 June 2013</date>
+</div>
+
+
+        <p>A script to convert a gravatar into a .ico file.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#!/bin/bash</span>
+
+<span class="c"># This script downloads a gravatar image associated with EMAIL and saves it at</span>
+<span class="c"># AVATAR_OUTPUT_PATH then creates a favicon icon and saves it at</span>
+<span class="c"># FAVICON_OUTPUT_PATH.</span>
+
+<span class="nv">EMAIL</span><span class="o">=</span><span class="s2">&quot;hector.dearman@gmail.com&quot;</span>
+<span class="nv">AVATAR_OUTPUT_PATH</span><span class="o">=</span><span class="s2">&quot;static/img/avatar.png&quot;</span>
+<span class="nv">FAVICON_OUTPUT_PATH</span><span class="o">=</span><span class="s2">&quot;static/favicon.ico&quot;</span>
+
+<span class="c"># https://en.gravatar.com/site/implement/hash/</span>
+<span class="k">function </span>email_to_hash <span class="o">{</span>
+    <span class="nb">echo</span> -n <span class="nv">$1</span> <span class="p">|</span> tr <span class="s1">&#39;[A-Z]&#39;</span> <span class="s1">&#39;[a-z]&#39;</span> <span class="p">|</span> md5
+<span class="o">}</span>
+
+<span class="c"># Stop on error.</span>
+<span class="nb">set</span> -e
+
+<span class="nv">email_hash</span><span class="o">=</span><span class="k">$(</span>email_to_hash <span class="nv">$EMAIL</span><span class="k">)</span>
+
+<span class="c"># https://en.gravatar.com/site/implement/images/</span>
+wget http://www.gravatar.com/avatar/<span class="nv">$email_hash</span>?size<span class="o">=</span>512 -O <span class="nv">$AVATAR_OUTPUT_PATH</span>
+
+<span class="c"># http://www.imagemagick.org/Usage/thumbnails/#favicon</span>
+convert <span class="nv">$AVATAR_OUTPUT_PATH</span> -bordercolor white -border 0 <span class="se">\</span>
+    <span class="se">\(</span> -clone 0 -resize 16x16 <span class="se">\)</span> <span class="se">\</span>
+    <span class="se">\(</span> -clone 0 -resize 32x32 <span class="se">\)</span> <span class="se">\</span>
+    <span class="se">\(</span> -clone 0 -resize 48x48 <span class="se">\)</span> <span class="se">\</span>
+    <span class="se">\(</span> -clone 0 -resize 64x64 <span class="se">\)</span> <span class="se">\</span>
+    -delete 0 -alpha off -colors 256 <span class="nv">$FAVICON_OUTPUT_PATH</span>
+</code></pre></div>
+
+
+        <div class="footer">
+  <time>25 June 2013</time> /
+  <a href="/">Hector Dearman</a>
+</div>
+
+    </div>
+  </div>
+  
+
+
+</body>
+</html>
+
+<!-- <h3>Bash Script</h3> -->
+<!--
+<div class="subtle">
+  <time>25 June 2013</time>
+  &mdash;
+  <place>Cambridge</place>
+</div>
+-->
+

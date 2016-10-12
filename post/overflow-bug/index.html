@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The website of Hector Dearman">
+<meta name="author" content="Hector Dearman">
+
+<title>A subtle bug</title>
+
+<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico'/>
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43044975-2', 'tacticalgrace.com');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+<body>
+  <div id="masthead">
+    <div class="container">
+        <a class="mark" href="/">Hector Dearman</a>
+        <span class="middle"></span>
+        <div class="nav">
+            <ul>
+                <li><a  href="/about">About</a></li>
+                <li><a  href="/projects">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="container content">
+    <div class="article">
+        <div class="title-block">
+    <topic>A subtle bug</topic>
+    <sobriquet>Dat trigraph syntax</sobriquet>
+    <date>28 May 2016</date>
+</div>
+
+
+        <p>Spot the bug:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kt">int</span> <span class="nf">getAlphaComponent</span><span class="o">(</span><span class="kt">int</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// color is stored in ARGB format.</span>
+    <span class="k">return</span> <span class="n">color</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>Do you see it? It took me way to long.</p>
+
+<p>In Java <code>&gt;&gt;</code> is signed/arithmetic shift
+not logical shift so <code>0xFF000000 &gt;&gt; 24</code> is <code>0xFFFFFFFF</code> (-1) when you
+probably wanted <code>0x000000FF</code> (255).</p>
+
+<p>Like all the best bugs this one has a single character fix:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kt">int</span> <span class="nf">getAlphaComponent</span><span class="o">(</span><span class="kt">int</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// color is stored in ARGB format.</span>
+    <span class="k">return</span> <span class="n">color</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">24</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>And you get to use the cool triple angle bracket syntax which somehow always
+reminds me of merge conflicts…</p>
+
+        <div class="footer">
+  <time>28 May 2016</time> /
+  <a href="/">Hector Dearman</a>
+</div>
+
+    </div>
+  </div>
+  
+
+
+</body>
+</html>
+
+<!-- <h3></h3> -->
+<!--
+<div class="subtle">
+  <time>28 May 2016</time>
+  &mdash;
+  <place>London</place>
+</div>
+-->
+

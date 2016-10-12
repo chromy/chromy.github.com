@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The website of Hector Dearman">
+<meta name="author" content="Hector Dearman">
+
+<title>Stoneharth</title>
+
+<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico'/>
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43044975-2', 'tacticalgrace.com');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+<body>
+  <div id="masthead">
+    <div class="container">
+        <a class="mark" href="/">Hector Dearman</a>
+        <span class="middle"></span>
+        <div class="nav">
+            <ul>
+                <li><a  href="/about">About</a></li>
+                <li><a  href="/projects">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="container content">
+    <div class="article">
+        <div class="title-block">
+    <topic>Stoneharth</topic>
+    <sobriquet></sobriquet>
+    <date>26 June 2013</date>
+</div>
+
+
+        <p>I took part in <a href="http://www.kickstarter.com/projects/1590639245/stonehearth">Stoneharth’s Kickstarter</a> 
+(which is over now, although you can still preorder it)
+because it sounded so cool.
+<a href="http://stonehearth.net/">Stoneharth</a> is a game which kind of looks like a Dwarf Fortress/Minecraft mash up (so you know it’s going to be awesome).
+Having spent money on it I went into a phase for about a week where I obsessively
+read every post the creators had ever made on their devblog and one of the things
+I discovered is just how many interesting things they are doing with the tech in the game.</p>
+
+<p>The core engine is written C++ but all of the orchestration happens in  Lua,
+they define all of the assets using json and the GUI is rendered on an embedded 
+Chrome window layered on top of the game.</p>
+
+<p>That last bit means that they can write the interface as an <a href="http://emberjs.com/">Ember</a> app getting CSS animations etc. for free which is <strong>really cool</strong>.
+The way they’ve implemented this all (apparently) makes the game really easy to mod<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> which was one of their design goals.</p>
+
+<p>I was so enamored with their approach that I decided to try and <a href="http://github.com/chromy/Fornax">replicate it</a>.</p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Googling around it looks like there are three ways to embed Chrome into a game (without replicating a lot of work):
+- <a href="http://code.google.com/p/chromiumembedded/">Chromium Embedded Framework (CEF)</a>
+- <a href="http://awesomium.com/">Awesomium</a>
+- <a href="http://berkelium.org/">Berkelium</a></p>
+
+<p>Of these CEF is the most mature (and most complicated) but it was originally designed as a widget to integrate
+into a desktop application and the example that ships with it is 12K lines so I have no idea where to start.</p>
+
+<p>In comparison Awesomium is designed for games and the interface is a lot simpler (the minimal example fits on a page) but it’s not open source 
+(they have a weird “it’s free unless you make over $n dollers profit” licence).</p>
+
+<p>Berkelium is an open source clone of an old version of Awesomium which now seems to be suffering pretty badly from bit rot.</p>
+
+<p>The documentation sucks pretty bad for all of them although I would say Awesomium has the edge if just for the nice example.</p>
+
+<p>Stoneharth uses CEF but I just couldn’t find a simple example of how to use it anywhere so I ended up using Awesomium.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Indeed most of the game’s behaviour is implemented as mods through the same API external mods will use. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        <div class="footer">
+  <time>26 June 2013</time> /
+  <a href="/">Hector Dearman</a>
+</div>
+
+    </div>
+  </div>
+  
+
+
+</body>
+</html>
+
+<!-- <h3>Embedding Chrome into OpenGL Games</h3> -->
+<!--
+<div class="subtle">
+  <time>26 June 2013</time>
+  &mdash;
+  <place>Cambridge</place>
+</div>
+-->
+

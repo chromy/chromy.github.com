@@ -1,0 +1,72 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+html {
+    height: 100%;
+    line-height: 1.6;
+    font-family: source sans pro, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #50505a;
+}
+
+@media (max-width:1000px) { html { font-size: 18px; } }
+@media (max-width:960px)  { html { font-size: 18px; } }
+@media (max-width:920px)  { html { font-size: 18px; } }
+@media (max-width:880px)  { html { font-size: 17px; } }
+@media (max-width:840px)  { html { font-size: 17px; } }
+@media (max-width:800px)  { html { font-size: 17px; } }
+@media (max-width:760px)  { html { font-size: 16px; } }
+@media (max-width:720px)  { html { font-size: 16px; } }
+@media (max-width:680px)  { html { font-size: 16px; } }
+@media (max-width:640px)  { html { font-size: 15px; } }
+@media (max-width:600px)  { html { font-size: 15px; } }
+@media (max-width:560px)  { html { font-size: 15px; } }
+@media (max-width:520px)  { html { font-size: 14px; } }
+
+p {
+    padding-top: 0;
+    margin: 1rem 0;
+}
+
+.landing > :first-child {
+    margin-top: 0;
+}
+
+
+.landing {
+    max-width: 33rem;
+    margin: 90px;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .landing {
+        margin: 1rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 468px) {
+    .landing {
+        margin: 1rem auto;
+    }
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    border-bottom: solid 1px #eee;
+    transition: color 250ms linear;
+}
+
+a:hover {
+    color: #4078c0;
+    border-bottom: solid 1px #bedaff;
+    transition: color 100ms linear;
+}

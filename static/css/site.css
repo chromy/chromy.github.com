@@ -1,0 +1,279 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+p {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+html {
+    font-size: 24px;
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 1.6;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 400;
+    color: #444;
+}
+
+@media all {html {font-size: 22px;}}
+@media all and (max-width:1000px){html {font-size: 22px;}}
+@media all and (max-width:960px){html {font-size: 21px;}}
+@media all and (max-width:920px){html {font-size: 20px;}}
+@media all and (max-width:880px){html {font-size: 19px;}}
+@media all and (max-width:840px){html {font-size: 18px;}}
+@media all and (max-width:800px){html {font-size: 17px;}}
+@media all and (max-width:760px){html {font-size: 16px;}}
+@media all and (max-width:720px){html {font-size: 15px;}}
+@media all and (max-width:680px){html {font-size: 14px;}}
+@media all and (max-width:640px){html {font-size: 13px;}}
+@media all and (max-width:600px){html {font-size: 12px;}}
+@media all and (max-width:560px){html {font-size: 11px;}}
+@media all and (max-width:520px){html {font-size: 10px;}}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* */
+.container {
+    margin: 0 auto;
+    max-width: 36rem;
+    font-size: 100%;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.article {
+    padding-top: 2rem;
+    margin: 0 4rem;
+    position: relative;
+}
+
+
+@media (max-width: 520px) {
+    .article {
+        margin: 0 2rem;
+    }
+}
+/* Masthead */
+
+#masthead {
+    background: rgba(255, 217, 0, 0.65);
+    /* font-variant: small-caps; */
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#masthead a {
+    display: inline-block;
+    padding: 5px 0;
+    border-bottom: 4px solid transparent;
+    color: #fff;
+}
+
+#masthead a:hover {
+    border-color: #fff;
+}
+
+#masthead a.active {
+    border-color: #fff;
+}
+
+#masthead .nav {
+    display: inline-block;
+    float: right;
+}
+
+#masthead .nav ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#masthead .nav ul li {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0;
+}
+
+#masthead .nav ul li a {
+    margin-left: 16px;
+}
+
+#masthead .mark {
+    display: inline-block;
+}
+
+/* Listing */
+.listing {
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+}
+
+.listing ul {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.listing ul li {
+    list-style: none;
+}
+
+.listing a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #444;
+}
+
+.listing li span {
+    display: inline-block;
+}
+
+.listing li .date {
+    margin-left: auto;
+    font-size: 80%;
+    color: #aaa;
+}
+
+@media (max-width: 520px) {
+    .listing li .date {
+        visibility: hidden;
+    }
+}
+
+.listing h3 {
+    display: block;
+    text-align: center;
+    color: rgba(255, 217, 0, 0.65);
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Easter Egg */
+
+.below {
+    left: 0;
+    right: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-image: url(/static/img/skulls.png);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.img-circle {
+    box-shadow: 0 0 10px #AFAF9B;
+    border-radius: 50%;
+}
+
+/* Links in body text are distinguished by low underline. */
+p a {
+    text-decoration: none;
+    color: rgb(49, 49, 48);
+    padding-bottom: 2px;
+    border-bottom: 1px solid #444;
+}
+
+/* Footnotes are not called out as links, we trust users to discover they are clickable... */
+a.footnote {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.footnotes {
+    font-size: 14px;
+    line-height: 140%;
+}
+
+/* Asides are in lighter sans-serif. */
+aside {
+    display: block;
+    position: absolute;
+    float: left;
+    left: 30rem;
+    width: 7rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    clear: both;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 70%;
+    color: #ccc;
+}
+
+@media (max-width: 56rem) {
+    aside {
+        position: inherit;
+        float: inherit;
+        left: 0;
+        padding: 0.5rem;
+        background: #fefefe;
+        width: 90%;
+        border: 1px solid #ccc;
+        border-left: 3px solid #ccc;
+    }
+}
+
+/* The heading */
+.title-block {
+    display: block;
+    position: absolute;
+    float: left;
+    margin-left: 0;
+    left: -9rem;
+    width: 7rem;
+    text-align: right;
+    list-style-type: none;
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 56rem) {
+    .title-block {
+        position: inherit;
+        float: inherit;
+        left: 0;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.title-block topic {
+    display: block;
+    font-size: 120%;
+}
+
+.title-block sobriquet {
+    display: none;
+}
+
+.title-block date {
+    display: block;
+    font-size: 80%;
+    color: #aaa;
+}
+
